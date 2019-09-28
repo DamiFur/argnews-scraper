@@ -23,8 +23,8 @@ while True:
 		print("Obtuvimos {} articulos nuevos".format(len(diario.articles)))
 
 		mongo.setup(nombre)
+		guardados = 0
 		for article in diario.articles:
-			guardados = 0
 			try:
 				article.download()
 				article.parse()
@@ -34,7 +34,7 @@ while True:
 			except Exception as e:
 				print(e)
 				continue
-			print("Guardados {} articulos de {}".format(guardados, nombre))
+		print("Guardados {} articulos de {}".format(guardados, nombre))
 
 	memoize = True
 	print("Me duermo por 2 horas")
