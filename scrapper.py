@@ -25,12 +25,16 @@ while True:
 		mongo.setup(nombre)
 		for article in diario.articles:
 			guardados = 0
-			article.download()
-			article.parse()
-			if not mongo.check_if_exists({"text": article.text}, nombre):
-				mongo.store(getAttributes(article), nombre)
-				guardados += 1
-		print("Guardados {} articulos de {}".format(guardados, nombre))
+			try:
+				article.download()
+				article.parse()
+				if not mongo.check_if_exists({"text": article.text}, nombre):
+					mongo.store(getAttributes(article), nombre)
+					guardados += 1
+			except Exception as e:
+				print(e)
+				continue
+			print("Guardados {} articulos de {}".format(guardados, nombre))
 
 	memoize = True
 	print("Me duermo por 2 horas")
