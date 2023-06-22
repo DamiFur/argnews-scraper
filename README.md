@@ -9,10 +9,10 @@ Scraper de noticias de diarios de Argentina
 pip install -r requirements.txt
 ```
 
-2. Correr Jupyter Lab
+2. Correr el script
 
 ```
-jupyter lab
+python scrapper.py
 ```
 
-Actualmente sólo hay un ejemplo en `notebooks/clarin.ipynb`. 
+También hay un ejemplo con más detalles en `notebooks/clarin.ipynb`. 
