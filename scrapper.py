@@ -1,6 +1,7 @@
 import newspaper
 import mongo
 import time
+from datetime import datetime
 
 diarios = {"LaNacion": "https://www.lanacion.com.ar/", "LID": "https://www.laizquierdadiario.com/", "Clarin": "https://www.clarin.com/", "PO": "https://www.prensaobrera.com", "P12": "https://www.pagina12.com.ar/"}
 
@@ -29,7 +30,10 @@ while True:
 				article.download()
 				article.parse()
 				if not mongo.check_if_exists({"text": article.text}, nombre):
-					mongo.store(getAttributes(article), nombre)
+					attributes = getAttributes(article)
+					if attributes["publish_date"] == None or attributes["publish_date"] == "":
+						attributes["publish_date"] = datetime.now()
+					mongo.store(attributes, nombre)
 					guardados += 1
 			except Exception as e:
 				print(e)
