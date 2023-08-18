@@ -3,7 +3,7 @@ import mongo
 import time
 from datetime import datetime
 
-diarios = {"LaNacion": "https://www.lanacion.com.ar/", "LID": "https://www.laizquierdadiario.com/", "Clarin": "https://www.clarin.com/", "PO": "https://www.prensaobrera.com", "P12": "https://www.pagina12.com.ar/"}
+diarios = {"LaNacion": "https://www.lanacion.com.ar/", "LID": "https://www.laizquierdadiario.com/", "Clarin": "https://www.clarin.com/", "PO": "https://www.prensaobrera.com", "P12": "https://www.pagina12.com.ar/", "Ambito": "https://www.ambito.com", "Cronista": "https://www.cronista.com", "Cronica": "https://www.cronica.com.ar", "Infobae": "https://www.infobae.com", "Tiempo": "https://www.tiempoar.com.ar"}
 
 def getAttributes(article):
 	return {
