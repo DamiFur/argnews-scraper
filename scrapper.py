@@ -29,8 +29,9 @@ while True:
 			try:
 				article.download()
 				article.parse()
-				print(article)
+				print(dir(article))
 				if not mongo.check_if_exists({"text": article.text}, nombre):
+					print("lala")
 					attributes = getAttributes(article)
 					if attributes.publish_date == None or attributes.publish_date == "":
 						attributes.publish_date = datetime.now()
