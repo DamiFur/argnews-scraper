@@ -31,8 +31,8 @@ while True:
 				article.parse()
 				if not mongo.check_if_exists({"text": article.text}, nombre):
 					attributes = getAttributes(article)
-					if attributes["publish_date"] == None or attributes["publish_date"] == "":
-						attributes["publish_date"] = datetime.now()
+					if attributes.publish_date == None or attributes.publish_date == "":
+						attributes.publish_date = datetime.now()
 					mongo.store(attributes, nombre)
 					guardados += 1
 			except Exception as e:
