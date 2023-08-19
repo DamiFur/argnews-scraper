@@ -31,7 +31,6 @@ while True:
 				article.parse()
 				if nombre == "LaNacion":
 					time.sleep(1)
-				print(dir(article))
 				if not mongo.check_if_exists({"text": article.text}, nombre):
 					attributes = getAttributes(article)
 					if attributes["publish_date"] == None or attributes["publish_date"] == "":

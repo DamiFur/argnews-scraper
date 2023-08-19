@@ -2,7 +2,7 @@ import pymongo
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 
-db = client["tweet-stands"]
+db = client["news-elections-2023"]
 
 def setup(collection):
     try:
