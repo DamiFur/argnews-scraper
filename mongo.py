@@ -16,6 +16,7 @@ def store(article, collection):
     db[collection].insert_one(article)
 
 def check_if_exists(query, collection):
+    print(dir(db[collection]))
     if db[collection].count(query) > 0:
         return True
     return False
