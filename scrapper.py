@@ -1,4 +1,4 @@
-import newspaper3k
+import newspaper
 import mongo
 import time
 from datetime import datetime
@@ -19,7 +19,7 @@ while True:
 	memoize = False
 	for nombre in diarios:
 		print("Descargando noticias de {}".format(nombre))
-		diario = newspaper3k.build(diarios[nombre], memoize_articles=memoize)
+		diario = newspaper.build(diarios[nombre], memoize_articles=memoize)
 
 		print("Obtuvimos {} articulos nuevos".format(len(diario.articles)))
 
